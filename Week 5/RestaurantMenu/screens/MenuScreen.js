@@ -22,7 +22,7 @@ function MenuScreen(props) {
     {
       name: "Fish Tacos",
       image: require("../assets/images/menu-items/fish-tacos.jpg"),
-      price: "$20.99",
+      price: "$10.99",
       id: 2,
     },
     {
