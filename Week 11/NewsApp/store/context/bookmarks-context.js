@@ -1,42 +1,42 @@
+// Import Components
 import { createContext, useState } from "react";
 
-// Create Context to allow items to be passed between files
+// Create Context to pass items between files
 export const BookmarksContext = createContext({
-  // Structure the BookmarkContext
   ids: [],
   addFavoriteArticle: (id) => {},
   removeFavoriteArticle: (id) => {},
 });
 
-// Function to hold the add and remove functions for bookmarked items
+// Function for holding  add/remove functions for bookmarks
 function BookmarkContextProvider({ children }) {
-  // Create State Variables for bookmarked items (id)
+  // Creates useState for bookmarked items
   const [bookmarkedIds, setBookmarksIds] = useState([]);
 
-  // Function to add a favorite article to bookmarks screen
+  // Function for adding articles to the bookmarks screen
   function addFavoriteArticle(id) {
-    // Add the article to favorites based on id
+    // Adds in article based on Id
     setBookmarksIds((currentBookmarkedIds) => {
       return [...currentBookmarkedIds, id];
     });
   }
 
-  // Function to remove a favorite article to bookmarks screen
+  // Function for removing articles from the bookmarks screen
   function removeFavoriteArticle(id) {
-    // Remove the article to favorites based on id
+    // Removes article based on Id
     setBookmarksIds((currentBookmarkedIds) => {
       return currentBookmarkedIds.filter((bookId) => bookId != id);
     });
   }
 
-  // Create value object to hold ids and added/removed favorite articles
+  // Creates value object for holding Ids + add/removed articles
   const value = {
     ids: bookmarkedIds,
     addFavoriteArticle: addFavoriteArticle,
     removeFavoriteArticle: removeFavoriteArticle,
   };
 
-  // Show the saved articles on screen
+  // Shows saved articles on screen
   return (
     <BookmarksContext.Provider value={value}>
       {children}
@@ -44,6 +44,5 @@ function BookmarkContextProvider({ children }) {
   );
 }
 
-
-// Export to different files
-export default BookmarkContextProvider
+// Export component for use
+export default BookmarkContextProvider;
