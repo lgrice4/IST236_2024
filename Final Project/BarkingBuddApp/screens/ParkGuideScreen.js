@@ -6,6 +6,8 @@ import MapView from 'react-native-maps';
 import { useFonts } from "expo-font";
 // Import icons for bottom tab navigation
 import { FontAwesome5 } from "@expo/vector-icons";
+// Import Constants
+import colors from "../constants/colors";
 
 // Functional component for the parkguidescreen
 const ParkGuideScreen = () => {
@@ -50,15 +52,16 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   textContainer: {
-    flex: 0.4, // Adjust the size of the text container
+    flex: 0.4, // Adjusts the size of the text container
     padding: 20,
-    backgroundColor: '#edd1d1',
+    backgroundColor: colors.primary1, // Use colors.primary1 from colors.js
   },
   title: {
     fontSize: 20, 
     textAlign: 'center',
     fontFamily: 'TypoGraphica', 
     marginBottom: 10, // Add some spacing between title and text
+    color: colors.primary3, // Use colors.primary3 from colors.js
   },
   text: {
     fontSize: 16,

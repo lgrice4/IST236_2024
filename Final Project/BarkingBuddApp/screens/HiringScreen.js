@@ -6,10 +6,8 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 // Picker for number of dogs
 import { Picker } from "@react-native-picker/picker";
 import { LinearGradient } from 'expo-linear-gradient'; // Import LinearGradient
-import { useFonts } from "expo-font";
-// Import icons for bottom tab navigation
-import { FontAwesome5 } from "@expo/vector-icons";
-
+// Import Constants
+import colors from "../constants/colors";
 
 // Defines HiringScreen functional component
 const HiringScreen = () => {
@@ -49,18 +47,18 @@ const HiringScreen = () => {
         <Switch
           value={dogWalking}
           onValueChange={setDogWalking}
-          trackColor={{ false: "#767577", true: "#f4f3f4" }}
-          thumbColor={dogWalking ? "#cda1a1" : "#f4f3f4"}
-        />
-        <Text>Dog Sitting</Text>
-        {/* Switch for dog sitting */}
-        <Switch
-          value={dogSitting}
-          onValueChange={setDogSitting}
-          trackColor={{ false: "#767577", true: "#f4f3f4" }}
-          thumbColor={dogSitting ? "#cda1a1" : "#f4f3f4"}
-        />
-      </View>
+          trackColor={{ false: "#767577", true: colors.primary2 }} // Use colors.primary2 from colors.js
+            thumbColor={dogWalking ? colors.primary1 : "#f4f3f4"} // Use colors.primary1 from colors.js
+          />
+          <Text>Dog Sitting</Text>
+          {/* Switch for dog sitting */}
+          <Switch
+            value={dogSitting}
+            onValueChange={setDogSitting}
+            trackColor={{ false: "#767577", true: colors.primary2 }} // Use colors.primary2 from colors.js
+            thumbColor={dogSitting ? colors.primary1 : "#f4f3f4"} // Use colors.primary1 from colors.js
+          />
+        </View>
       {/* Title for selecting service length */}
       <Text style={styles.title}>Choose your Service Length</Text>
       {/* Radio buttons for selecting service length */}
@@ -177,7 +175,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 20,
-    // backgroundColor: "#edd1d1",
   },
   title: {
     fontSize: 20,
@@ -200,14 +197,14 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: "#cda1a1",
+    borderColor: colors.accent4,  // Use colors.accent4 from colors.js
   },
   radioButtonSelected: {
-    backgroundColor: "#cda1a1",
+    backgroundColor: colors.accent4,  // Use colors.accent4 from colors.js
   },
   radioText: {
     fontSize: 16,
-    color: "#000000",
+    color: colors.accent2,
     fontFamily: "RobotoRegular",
   },
   dateContainer: {
@@ -221,10 +218,10 @@ const styles = StyleSheet.create({
   picker: {
     width: 200,
     height: 60,
-    marginTop: -60,
+    marginTop: -40,
   },
   button: {
-    backgroundColor: "#cda1a1",
+    backgroundColor: colors.accent4, // Use colors.accent4 from colors.js
     paddingVertical: 12,
     paddingHorizontal: 40,
     borderRadius: 25,
@@ -254,7 +251,7 @@ const styles = StyleSheet.create({
     fontFamily: "TypoGraphica",
   },
   closeButton: {
-    backgroundColor: "#cda1a1",
+    backgroundColor: colors.accent4,  // Use colors.accent4 from colors.js
     paddingVertical: 12,
     paddingHorizontal: 40,
     borderRadius: 25,

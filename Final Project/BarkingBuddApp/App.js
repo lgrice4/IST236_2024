@@ -13,11 +13,11 @@ import ParkGuideScreen from "./screens/ParkGuideScreen";
 // Import icons for bottom tab navigation
 import { FontAwesome5 } from "@expo/vector-icons";
 import { useFonts } from "expo-font";
+// Import Constants
+import colors from "./constants/colors";
 
 // Create a bottom tab navigator
 const tab = createBottomTabNavigator();
-
-
 
 // Main component for the app
 export default function App() {
@@ -32,19 +32,19 @@ export default function App() {
   return (
     // Container for the navigation
     <NavigationContainer>
-            <StatusBar style="dark" />
-            {/* Navigation for the bottom tab */}
+      <StatusBar style="dark" />
+      {/* Navigation for the bottom tab */}
       <tab.Navigator
         screenOptions={{
           tabBarShowLabel: false,
           tabBarStyle: {
-            backgroundColor: "#767577",
+            backgroundColor: colors.primary2, // Use colors.primary2 from colors.js
             position: "fixed",
             bottom: 40,
             marginHorizontal: 10,
             height: 60,
             borderRadius: 20,
-            shadowColor: "#000",
+            shadowColor: colors.accent2, // Use colors.accent2 from colors.js
             shadowOpacity: 0.7,
             shadowOffset: {
               width: 8,
@@ -54,7 +54,7 @@ export default function App() {
           },
         }}
       >
-                {/* Home screen tab */}
+        {/* Home screen tab */}
         <tab.Screen
           name={"Helpful Tips For Your Furry Friend"}
           component={Home}
@@ -70,12 +70,12 @@ export default function App() {
                 <FontAwesome5
                   name="home"
                   size={25}
-                  color={focused ? "#edd1d1" : "white"}
-                ></FontAwesome5>
+                  color={focused ? colors.primary1 : "white"} // Use colors.primary1 from colors.js
+                />
               </View>
             ),
           }}
-        ></tab.Screen>
+        />
         {/* Hiring screen tab */}
         <tab.Screen
           name={"Hire A Dog Walker or Sitter"}
@@ -91,8 +91,8 @@ export default function App() {
                 <FontAwesome5
                   name="users"
                   size={25}
-                  color={focused ? "#edd1d1" : "white"}
-                ></FontAwesome5>
+                  color={focused ? colors.primary1 : "white"} // Use colors.primary1 from colors.js
+                />
               </View>
             ),
           }}
@@ -113,13 +113,13 @@ export default function App() {
                 <FontAwesome5
                   name="volume-up"
                   size={25}
-                  color={focused ? "#edd1d1" : "white"}
-                ></FontAwesome5>
+                  color={focused ? colors.primary1 : "white"} // Use colors.primary1 from colors.js
+                />
               </View>
             ),
           }}
         />
-                {/* Park guide screen tab */}
+        {/* Park guide screen tab */}
         <tab.Screen
           name={"Find A Dog Park Near You"}
           component={ParkGuideScreen}
@@ -135,7 +135,7 @@ export default function App() {
                 <FontAwesome5
                   name="map"
                   size={25}
-                  color={focused ? "#edd1d1" : "white"}
+                  color={focused ? colors.primary1 : "white"}
                 ></FontAwesome5>
               </View>
             ),
@@ -151,7 +151,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: colors.accent1,
     alignItems: "center",
     justifyContent: "center",
   },

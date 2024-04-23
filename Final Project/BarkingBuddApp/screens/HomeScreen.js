@@ -3,9 +3,8 @@ import React, { useState } from "react";
 import { View, FlatList, Text, Image, StyleSheet, useWindowDimensions, useOrientation } from "react-native";
 // Import the guide items data
 import GuideItems from "../components/GuideItems"; 
-import { useFonts } from "expo-font";
-// Import icons for bottom tab navigation
-import { FontAwesome5 } from "@expo/vector-icons";
+// Import Constants
+import colors from "../constants/colors";
 
 // Functional component for the homescreen
 const HomeScreen = () => {
@@ -43,8 +42,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
     borderBottomWidth: 1,
-    borderBottomColor: "#c3a5a5",
-    backgroundColor: '#edd1d1',
+    borderBottomColor: colors.accent1, // Use colors.accent1 from colors.js
+    backgroundColor: colors.primary1, // Use colors.primary1 from colors.js
     height: 200,
   },
   image: {
@@ -55,14 +54,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   textContainer: {
-    flex: 1, // Take up remaining space
+    flex: 1, // Takes up remaining space
   },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 5,
+    color: colors.primary3, // Use colors.primary3 from colors.js
   },
 });
+
 
 // export component for use in app
 export default HomeScreen;
