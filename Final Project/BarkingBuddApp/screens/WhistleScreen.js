@@ -14,7 +14,7 @@ const WhistleScreen = () => {
   // Function for loading the sound file
   const loadSound = async () => {
     const { sound } = await Audio.Sound.createAsync(
-      require('../assets/sounds/dog-whistle.mp3')
+      require('../assets/sounds/whistle.mp3')
     );
     setSound(sound);
   };
@@ -81,10 +81,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary1, // Use colors.primary1 from colors.js
   },
   image: {
-    width: 200,
-    height: 200,
+    width: 400,
+    height: 250,
     resizeMode: 'contain',
-    marginBottom: 5,
+    marginBottom: 20,
   },
   infoText: {
     marginBottom: 20,
