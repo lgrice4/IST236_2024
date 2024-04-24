@@ -1,11 +1,21 @@
 // Import components
 import React, { useState } from "react";
-import { View, Text, Switch, Modal, Pressable, TouchableOpacity, StyleSheet, useWindowDimensions } from "react-native";
+import {
+  View,
+  Text,
+  Switch,
+  Modal,
+  Pressable,
+  TouchableOpacity,
+  StyleSheet,
+  useWindowDimensions,
+} from "react-native";
 // Datetimepicker for start date and end date
 import DateTimePicker from "@react-native-community/datetimepicker";
 // Picker for number of dogs
 import { Picker } from "@react-native-picker/picker";
-import { LinearGradient } from 'expo-linear-gradient'; // Import LinearGradient
+// LinearGradient background import
+import { LinearGradient } from "expo-linear-gradient"; // Import LinearGradient
 // Import Constants
 import colors from "../constants/colors";
 
@@ -33,21 +43,20 @@ const HiringScreen = () => {
 
   const { width, height } = useWindowDimensions();
 
-
   // Rendering of the component
   return (
-    <LinearGradient colors={['#cda1a1', '#fff']} style={styles.container}>
-    <View style={styles.container}>
-      {/* Title for selecting service */}
-      <Text style={styles.title}>Which service would you like?</Text>
-      {/* Switches for selecting dog walking and dog sitting services */}
-      <View style={styles.switchContainer}>
-        <Text>Dog Walking</Text>
-        {/* Switch for dog walking */}
-        <Switch
-          value={dogWalking}
-          onValueChange={setDogWalking}
-          trackColor={{ false: "#767577", true: colors.primary2 }} // Use colors.primary2 from colors.js
+    <LinearGradient colors={["#cda1a1", "#fff"]} style={styles.container}>
+      <View style={styles.container}>
+        {/* Title for selecting service */}
+        <Text style={styles.title}>Which service would you like?</Text>
+        {/* Switches for selecting dog walking and dog sitting services */}
+        <View style={styles.switchContainer}>
+          <Text>Dog Walking</Text>
+          {/* Switch for dog walking */}
+          <Switch
+            value={dogWalking}
+            onValueChange={setDogWalking}
+            trackColor={{ false: "#767577", true: colors.primary2 }} // Use colors.primary2 from colors.js
             thumbColor={dogWalking ? colors.primary1 : "#f4f3f4"} // Use colors.primary1 from colors.js
           />
           <Text>Dog Sitting</Text>
@@ -59,111 +68,111 @@ const HiringScreen = () => {
             thumbColor={dogSitting ? colors.primary1 : "#f4f3f4"} // Use colors.primary1 from colors.js
           />
         </View>
-      {/* Title for selecting service length */}
-      <Text style={styles.title}>Choose your Service Length</Text>
-      {/* Radio buttons for selecting service length */}
-      <View style={styles.radioContainer}>
-        <TouchableOpacity
-          style={[
-            styles.radioButton,
-            serviceLength === "A day" && styles.radioButtonSelected,
-          ]}
-          onPress={() => handleServiceLength("A day")}
-        >
-          <Text style={styles.radioText}>A day</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[
-            styles.radioButton,
-            serviceLength === "A weekend" && styles.radioButtonSelected,
-          ]}
-          onPress={() => handleServiceLength("A weekend")}
-        >
-          <Text style={styles.radioText}>A weekend</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[
-            styles.radioButton,
-            serviceLength === "A week" && styles.radioButtonSelected,
-          ]}
-          onPress={() => handleServiceLength("A week")}
-        >
-          <Text style={styles.radioText}>A week</Text>
-        </TouchableOpacity>
-      </View>
-      {/* Container for selecting start date */}
-      <View style={styles.dateContainer}>
-        <Text>Start Date:</Text>
-        {/* Date picker for selecting start date */}
-        <DateTimePicker
-          value={startDate}
-          mode="date"
-          onChange={(event, date) => setStartDate(date)}
-        />
-      </View>
-      {/* Container for selecting end date */}
-      <View style={styles.dateContainer}>
-        <Text>End Date:</Text>
-        {/* Date picker for selecting end date */}
-        <DateTimePicker
-          value={endDate}
-          mode="date"
-          onChange={(event, date) => setEndDate(date)}
-        />
-      </View>
-
-      {/* Container for selecting number of dogs */}
-      <View style={styles.pickerContainer}>
-        <Text style={styles.title}>Select the Number of dogs</Text>
-        {/* Picker for selecting number of dogs */}
-        <Picker
-          selectedValue={numberOfDogs}
-          onValueChange={(itemValue) => setNumberOfDogs(itemValue)}
-          style={styles.picker}
-        >
-          {[1, 2, 3, 4, 5].map((num) => (
-            <Picker.Item key={num} label={num.toString()} value={num} />
-          ))}
-        </Picker>
-      </View>
-
-      {/* Button to schedule the service */}
-      <Pressable style={styles.button} onPress={handleSchedule}>
-        <Text style={styles.buttonText}>Schedule Now</Text>
-      </Pressable>
-
-      {/* Modal for displaying order confirmation */}
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}
-      >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>Order Confirmation:</Text>
-            {/* Display selected options */}
-            <Text>
-              Service: {dogWalking ? "Dog Walking" : ""}{" "}
-              {dogSitting ? "Dog Sitting" : ""}
-            </Text>
-            <Text>Service Length: {serviceLength}</Text>
-            <Text>Start Date: {startDate.toDateString()}</Text>
-            <Text>End Date: {endDate.toDateString()}</Text>
-            <Text>Number of Dogs: {numberOfDogs}</Text>
-            {/* Button to close the modal */}
-            <Pressable
-              style={styles.closeButton}
-              onPress={() => setModalVisible(false)}
-            >
-              <Text style={styles.closeButtonText}>Close</Text>
-            </Pressable>
-          </View>
+        {/* Title for selecting service length */}
+        <Text style={styles.title}>Choose your Service Length</Text>
+        {/* Radio buttons for selecting service length */}
+        <View style={styles.radioContainer}>
+          <TouchableOpacity
+            style={[
+              styles.radioButton,
+              serviceLength === "A day" && styles.radioButtonSelected,
+            ]}
+            onPress={() => handleServiceLength("A day")}
+          >
+            <Text style={styles.radioText}>A day</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.radioButton,
+              serviceLength === "A weekend" && styles.radioButtonSelected,
+            ]}
+            onPress={() => handleServiceLength("A weekend")}
+          >
+            <Text style={styles.radioText}>A weekend</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.radioButton,
+              serviceLength === "A week" && styles.radioButtonSelected,
+            ]}
+            onPress={() => handleServiceLength("A week")}
+          >
+            <Text style={styles.radioText}>A week</Text>
+          </TouchableOpacity>
         </View>
-      </Modal>
-    </View>
+        {/* Container for selecting start date */}
+        <View style={styles.dateContainer}>
+          <Text>Start Date:</Text>
+          {/* Date picker for selecting start date */}
+          <DateTimePicker
+            value={startDate}
+            mode="date"
+            onChange={(event, date) => setStartDate(date)}
+          />
+        </View>
+        {/* Container for selecting end date */}
+        <View style={styles.dateContainer}>
+          <Text>End Date:</Text>
+          {/* Date picker for selecting end date */}
+          <DateTimePicker
+            value={endDate}
+            mode="date"
+            onChange={(event, date) => setEndDate(date)}
+          />
+        </View>
+
+        {/* Container for selecting number of dogs */}
+        <View style={styles.pickerContainer}>
+          <Text style={styles.title}>Select the Number of dogs</Text>
+          {/* Picker for selecting number of dogs */}
+          <Picker
+            selectedValue={numberOfDogs}
+            onValueChange={(itemValue) => setNumberOfDogs(itemValue)}
+            style={styles.picker}
+          >
+            {[1, 2, 3, 4, 5].map((num) => (
+              <Picker.Item key={num} label={num.toString()} value={num} />
+            ))}
+          </Picker>
+        </View>
+
+        {/* Button to schedule the service */}
+        <Pressable style={styles.button} onPress={handleSchedule}>
+          <Text style={styles.buttonText}>Schedule Now</Text>
+        </Pressable>
+
+        {/* Modal for displaying order confirmation */}
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            setModalVisible(!modalVisible);
+          }}
+        >
+          <View style={styles.modalContainer}>
+            <View style={styles.modalContent}>
+              <Text style={styles.modalTitle}>Order Confirmation:</Text>
+              {/* Display selected options */}
+              <Text>
+                Service: {dogWalking ? "Dog Walking" : ""}{" "}
+                {dogSitting ? "Dog Sitting" : ""}
+              </Text>
+              <Text>Service Length: {serviceLength}</Text>
+              <Text>Start Date: {startDate.toDateString()}</Text>
+              <Text>End Date: {endDate.toDateString()}</Text>
+              <Text>Number of Dogs: {numberOfDogs}</Text>
+              {/* Button to close the modal */}
+              <Pressable
+                style={styles.closeButton}
+                onPress={() => setModalVisible(false)}
+              >
+                <Text style={styles.closeButtonText}>Close</Text>
+              </Pressable>
+            </View>
+          </View>
+        </Modal>
+      </View>
     </LinearGradient>
   );
 };
@@ -180,7 +189,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 10,
     fontFamily: "TypoGraphica",
-
   },
   switchContainer: {
     flexDirection: "column",
@@ -197,10 +205,10 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: colors.accent4,  // Use colors.accent4 from colors.js
+    borderColor: colors.accent4, // Use colors.accent4 from colors.js
   },
   radioButtonSelected: {
-    backgroundColor: colors.accent4,  // Use colors.accent4 from colors.js
+    backgroundColor: colors.accent4, // Use colors.accent4 from colors.js
   },
   radioText: {
     fontSize: 16,
@@ -251,7 +259,7 @@ const styles = StyleSheet.create({
     fontFamily: "TypoGraphica",
   },
   closeButton: {
-    backgroundColor: colors.accent4,  // Use colors.accent4 from colors.js
+    backgroundColor: colors.accent4, // Use colors.accent4 from colors.js
     paddingVertical: 12,
     paddingHorizontal: 40,
     borderRadius: 25,
@@ -265,5 +273,5 @@ const styles = StyleSheet.create({
   },
 });
 
-// Export component for use in app
+// export component for use in app
 export default HiringScreen;

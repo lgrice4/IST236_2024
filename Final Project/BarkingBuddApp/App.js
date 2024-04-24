@@ -1,7 +1,7 @@
 // Import components for use
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from "expo-status-bar";
 import "react-native-gesture-handler";
 // Import bottomtabs for navigation
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -12,6 +12,7 @@ import WhistleScreen from "./screens/WhistleScreen";
 import ParkGuideScreen from "./screens/ParkGuideScreen";
 // Import icons for bottom tab navigation
 import { FontAwesome5 } from "@expo/vector-icons";
+// Import fonts for use
 import { useFonts } from "expo-font";
 // Import Constants
 import colors from "./constants/colors";
@@ -22,8 +23,8 @@ const tab = createBottomTabNavigator();
 // Main component for the app
 export default function App() {
   const [fontsLoaded] = useFonts({
-    RobotoRegular: require('./assets/fonts/RobotoRegular.ttf'),
-    TypoGraphica: require('./assets/fonts/TypoGraphica.otf'),
+    RobotoRegular: require("./assets/fonts/RobotoRegular.ttf"),
+    TypoGraphica: require("./assets/fonts/TypoGraphica.otf"),
   });
 
   if (!fontsLoaded) {
@@ -145,7 +146,6 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
 
 // stylesheet for main app components
 const styles = StyleSheet.create({
